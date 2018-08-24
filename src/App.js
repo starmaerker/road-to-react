@@ -26,11 +26,21 @@ class App extends Component {
     super(props);
 
     this.state = {
-      list
+      list,
     }
-  } L
+
+    this.onDismiss = this.onDismiss.bind(this);
+  }
+
+  onDismiss(id) {
+    const isNotId = item => item.objectID !== id;
+    const updatedList = this.state.list.filter(isNotId);
+    this.setState({ list: updatedList });
+  }
+
   render() {
     return (
+
       <div className="App">
         {this.state.list.map((item, index) =>
           <div key={item.objectID}>
