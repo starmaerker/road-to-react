@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
 
 const list = [
   {
-    title: 'React',
-    url: 'https://reactjs.org/',
-    author: 'Jordan Walke',
+    title: "React",
+    url: "https://reactjs.org/",
+    author: "Jordan Walke",
     num_comments: 3,
     points: 4,
-    objectID: 0,
+    objectID: 0
   },
   {
-    title: 'Redux',
-    url: 'https://redux.js.org/',
-    author: 'Dan Abramov, Andrew Clark',
+    title: "Redux",
+    url: "https://redux.js.org/",
+    author: "Dan Abramov, Andrew Clark",
     num_comments: 2,
     points: 5,
-    objectID: 1,
-  },
+    objectID: 1
+  }
 ];
 
 class App extends Component {
@@ -25,10 +24,15 @@ class App extends Component {
     super(props);
 
     this.state = {
-      list,
+      list
     };
 
+    this.onSearchChange = this.onSearchChange.bind(this);
     this.onDismiss = this.onDismiss.bind(this);
+  }
+
+  onSearchChange(event) {
+    this.setState({ searchTerm: event.target.value });
   }
 
   onDismiss(id) {
@@ -39,8 +43,12 @@ class App extends Component {
 
   render() {
     return (
-
       <div className="App">
+        <form>
+          <input type="text"
+            onChange={this.onSearchChange}
+           />
+        </form>
         {this.state.list.map((item, index) => (
           <div key={item.objectID}>
             <span>
@@ -55,8 +63,9 @@ class App extends Component {
                 type="button"
               >
                 Dismiss
-              </button>
+              </button>              
             </span>
+            <h1>{this.state.searchTerm}</h1>
           </div>
         ))}
       </div>
@@ -65,3 +74,4 @@ class App extends Component {
 }
 
 export default App;
+
