@@ -61,16 +61,13 @@ class App extends Component {
   }
 }
 
-class Search extends Component {
-  render() {
-    const { value, onChange, children } = this.props;
-    return (
+const Search = ({ value, onChange, children }) =>       
       <form>
-        {children} <input type="text" value={value} onChange={onChange} />
-      </form>
-    );
-  }
-}
+        {children} <input 
+        type="text" 
+        value={value} 
+        onChange={onChange} />
+      </form>  
 
 class Table extends Component {
   render() {
@@ -97,12 +94,10 @@ class Table extends Component {
 
 class Button extends Component {
   render() {
-    const { onClick, className = '', children } = this.props;
+    const { onClick, className = "", children } = this.props;
 
     return (
-      <button onClick={onClick} 
-      className={className} 
-      type="button">
+      <button onClick={onClick} className={className} type="button">
         {children}
       </button>
     );
