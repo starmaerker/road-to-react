@@ -1,26 +1,26 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 const list = [
   {
-    title: "React",
-    url: "https://reactjs.org/",
-    author: "Jordan Walke",
+    title: 'React',
+    url: 'https://reactjs.org/',
+    author: 'Jordan Walke',
     num_comments: 3,
     points: 4,
-    objectID: 0
+    objectID: 0,
   },
   {
-    title: "Redux",
-    url: "https://redux.js.org/",
-    author: "Dan Abramov, Andrew Clark",
+    title: 'Redux',
+    url: 'https://redux.js.org/',
+    author: 'Dan Abramov, Andrew Clark',
     num_comments: 2,
     points: 5,
-    objectID: 1
-  }
+    objectID: 1,
+  },
 ];
 
 function isSearched(searchTerm) {
-  return function(item) {
+  return function (item) {
     return item.title.toLowerCase().includes(searchTerm.toLowerCase());
   };
 }
@@ -31,7 +31,7 @@ class App extends Component {
 
     this.state = {
       list,
-      searchTerm: ""
+      searchTerm: '',
     };
 
     this.onSearchChange = this.onSearchChange.bind(this);
@@ -61,15 +61,15 @@ class App extends Component {
   }
 }
 
-const Search = ({ value, onChange, children }) =>       
-      <form>
-        {children} <input 
-        type="text" 
-        value={value} 
-        onChange={onChange} />
-      </form>  
-
-class Table extends Component {
+const Search = ({ value, onChange, children }) => (
+<form>
+    {children} <input
+      type="text"
+      value={value}
+      onChange={onChange}
+    />
+  </form>
+)class Table extends Component {
   render() {
     const { list, pattern, onDismiss } = this.props;
     return (
@@ -92,16 +92,14 @@ class Table extends Component {
   }
 }
 
-class Button extends Component {
-  render() {
-    const { onClick, className = "", children } = this.props;
-
-    return (
-      <button onClick={onClick} className={className} type="button">
-        {children}
-      </button>
-    );
-  }
-}
+const Button = ({ onClick, className = '', children }) => (
+<button
+    onClick={onClick}
+    className={className}
+    type="button"
+  >
+    {children}
+  </button>
+)
 
 export default App;
