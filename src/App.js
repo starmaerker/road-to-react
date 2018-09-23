@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const DEFAULT_QUERY = 'redux';
+const DEFAULT_QUERY = 'javascript';
 
 const PATH_BASE = 'https://hn.algolia.com/api/v1';
 const PATH_SEARCH = '/search';
@@ -47,6 +47,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state)
     const { searchTerm, result } = this.state;
 
     if (!result) { return null; }
@@ -81,10 +82,13 @@ const Table = ({ list, pattern, onDismiss }) =>
   <div className="table">
     {list.filter(isSearched(pattern)).map(item => (
       <div key={item.objectID} className="table-row">
-        <span style={{ width: '40%' }}>
-          <a href={item.url}>{item.title}</a>
+        <span style={{ width: '20%' }}>
+          {item.created_at}
         </span>
         <span style={{ width: '30%' }}>
+          <a href={item.url}>{item.title}</a>
+        </span>
+        <span style={{ width: '20%' }}>
           {item.author}
         </span>
         <span style={{ width: '10%' }}>
