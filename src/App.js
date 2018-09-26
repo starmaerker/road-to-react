@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import "./App.css";
 
 const DEFAULT_QUERY = "javascript";
@@ -174,11 +175,33 @@ const Table = ({ list, onDismiss }) => (
   </div>
 );
 
-const Button = ({ onClick, className = "", children }) => (
+const Button = ({ onClick, className, children }) => (
   <button onClick={onClick} className={className} type="button">
     {children}
   </button>
 );
+
+Button.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
+
+Button.defaultProps = {
+  className: '',
+};
+
+Table.propTypes = {
+  list: PropTypes.array.isRequired,
+  onDismiss: PropTypes.func.isRequired,
+};
+
+Search.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onSubmit:PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export default App;
 
