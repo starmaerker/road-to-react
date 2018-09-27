@@ -22,6 +22,7 @@ class App extends Component {
       searchKey: "",
       searchTerm: DEFAULT_QUERY,
       error: null,
+      isLoading: false,
     };
 
     this.needsToSearchTopStories = this.needsToSearchTopStories.bind(this);
@@ -50,11 +51,14 @@ class App extends Component {
       results: {
         ...results,
         [searchKey]: { hits: updatedHits, page }
-      }
+      },
+      isLoading: false
     });
   }
 
   fetchSearchTopStories(searchTerm, page = 0) {
+    this.setState({ isLoading: true });
+
     axios(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchTerm}&${PARAM_PAGE}${page}&${PARAM_HPP}${DEFAULT_HPP}`)
       .then(result => this._isMounted && this.setSearchTopStories(result.data))
       .catch(error => this._isMounted && this.setState({ error }));
@@ -100,7 +104,7 @@ class App extends Component {
   }
 
   render() {
-    const { searchTerm, results, searchKey, error } = this.state;
+    const { searchTerm, results, searchKey, error, isLoading } = this.state;
 
     const page =
       (results && results[searchKey] && results[searchKey].page) || 0;
@@ -120,7 +124,7 @@ class App extends Component {
             onChange={this.onSearchChange}
             onSubmit={this.onSearchSubmit}
           >
-            Search:
+            Search
           </Search>
         </div>
         {error
@@ -133,11 +137,14 @@ class App extends Component {
           />
         }
         <div className="interactions">
-          <Button
-            onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}
-          >
-            More
-          </Button>
+          {isLoading
+            ? <Loading />
+            : <Button
+              onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}
+            >
+              More
+            </Button>
+          }
         </div>
       </div>
     );
@@ -199,9 +206,12 @@ Table.propTypes = {
 Search.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  onSubmit:PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
 };
+
+const Loading = () =>
+  <div>Loading ...</div>
 
 export default App;
 
