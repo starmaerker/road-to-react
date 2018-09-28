@@ -1,0 +1,9 @@
+language: node_js
+node_js: stable
+sudo: required
+dist: trusty
+install:
+  - npm cache clean
+  - npm install
+script:  
+  - npm run build
