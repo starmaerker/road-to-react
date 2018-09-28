@@ -26,5 +26,6 @@
     "eslint-plugin-react": "^7.11.1",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.5.2"
-  }
+  },
+  "homepage": "https://hackernews-reader.azurewebsites.net"
 }
