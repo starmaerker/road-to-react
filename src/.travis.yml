@@ -1,0 +1,16 @@
+language: node_js
+node_js: stable
+sudo: required
+dist: trusty
+install:
+  - npm cache clean
+  - npm install
+script:  
+  - npm run build
+
+before_deploy:
+  - cd build
+deploy:
+  provider: azure_web_apps
+  skip_cleanup: true
+  verbose: true
