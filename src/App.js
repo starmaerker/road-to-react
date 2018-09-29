@@ -3,6 +3,11 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { sortBy } from 'lodash';
 import "./App.css";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSync } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faSync);
 
 const DEFAULT_QUERY = "javascript";
 const DEFAULT_HPP = "100";
@@ -323,7 +328,7 @@ Search.propTypes = {
 };
 
 const Loading = () =>
-  <div>Loading ...</div>
+  <div><FontAwesomeIcon className="fa-spin" icon="sync" style={{ fontSize: 48, color: "lightblue" }} /></div>
 
 const withLoading = (Component) => ({ isLoading, ...rest }) =>
   isLoading

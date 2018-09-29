@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "@fortawesome/free-solid-svg-icons": "^5.3.1",
+    "@fortawesome/react-fontawesome": "^0.1.3",
     "axios": "^0.18.0",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
@@ -27,5 +30,5 @@
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.5.2"
   },
-  "homepage": "https://hackernews-reader.azurewebsites.net/"
+  "homepage": "./"
 }
