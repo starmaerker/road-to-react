@@ -5,9 +5,11 @@ import { sortBy } from 'lodash';
 import "./App.css";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSync } from '@fortawesome/free-solid-svg-icons'
+import { faSync, faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faSync);
+library.add(faArrowDown);
+library.add(faArrowUp);
 
 const DEFAULT_QUERY = "javascript";
 const DEFAULT_HPP = "100";
@@ -235,6 +237,10 @@ const Table = ({
           >
             CREATED AT
         </Sort>
+          {isSortReverse
+            ? <FontAwesomeIcon icon="arrow-up" />
+            : <FontAwesomeIcon icon="arrow-down" />
+          }
         </span>
         <span style={{ width: '40%' }}>
           <Sort
