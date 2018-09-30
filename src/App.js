@@ -235,7 +235,7 @@ const Table = ({
             onSort={onSort}
             activeSortKey={sortKey}
           >
-            CREATED AT
+            CREATED
         </Sort>
           {isSortReverse
             ? <FontAwesomeIcon icon="arrow-up" />
