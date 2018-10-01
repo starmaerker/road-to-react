@@ -229,7 +229,7 @@ const Table = ({
   return (
     <div className="table">
       <div className="table-header">
-        <span style={{ width: '20%' }}>
+        <span style={{ width: '15%' }}>
           <Sort
             sortKey={'CREATED'}
             onSort={onSort}
@@ -249,7 +249,7 @@ const Table = ({
             Title
         </Sort>
         </span>
-        <span style={{ width: '10%' }}>
+        <span style={{ width: '15%' }}>
           <Sort
             sortKey={'AUTHOR'}
             onSort={onSort}
@@ -285,11 +285,11 @@ const Table = ({
       </div>
       {reverseSortedList.map(item => (
         <div key={item.objectID} className="table-row">
-          <span style={{ width: "20%" }}>{item.created_at.substring(0, 10)}</span>
+          <span style={{ width: "15%" }}>{item.created_at.substring(0, 10)}</span>
           <span style={{ width: "40%" }}>
             <a href={item.url}>{item.title}</a>
           </span>
-          <span style={{ width: "10%" }}>{item.author}</span>
+          <span style={{ width: "15%" }}>{item.author}</span>
           <span style={{ width: "10%" }}>{item.num_comments}</span>
           <span style={{ width: "10%" }}>{item.points}</span>
           <span style={{ width: "10%" }}>

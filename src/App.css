@@ -38,12 +38,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0 5px;
+  text-align: center;
 }
 
 .table-row > span {
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0 5px;
+  text-align: center;
 }
 
 .button-inline {
@@ -61,3 +63,5 @@
   border-radius: 0;
   border-bottom: 1px solid #38BB6C;
 }
+
+
