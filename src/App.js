@@ -358,8 +358,8 @@ const Sort = ({
   if (sortKey === activeSortKey) {
     sortClass.push('button-active');  
     isSortReverse
-      ? arrow = <FontAwesomeIcon icon="arrow-up" />   
-      : arrow = <FontAwesomeIcon icon="arrow-down" />
+      ? arrow = <FontAwesomeIcon icon="arrow-down" />   
+      : arrow = <FontAwesomeIcon icon="arrow-up" />
   }
   
   return (
