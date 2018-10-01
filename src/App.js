@@ -169,7 +169,7 @@ class App extends Component {
             sortKey={sortKey}
             isSortReverse={isSortReverse}
             onSort={this.onSort}
-            onDismiss={this.onDismiss}
+            onDismiss={this.onDismiss}            
           />
         }
         <div className="interactions">
@@ -234,6 +234,7 @@ const Table = ({
             sortKey={'CREATED'}
             onSort={onSort}
             activeSortKey={sortKey}
+            isSortReverse={isSortReverse}
           >
             CREATED
         </Sort>
@@ -243,6 +244,7 @@ const Table = ({
             sortKey={'TITLE'}
             onSort={onSort}
             activeSortKey={sortKey}
+            isSortReverse={isSortReverse}
           >
             Title
         </Sort>
@@ -252,6 +254,7 @@ const Table = ({
             sortKey={'AUTHOR'}
             onSort={onSort}
             activeSortKey={sortKey}
+            isSortReverse={isSortReverse}
           >
             Author
         </Sort>
@@ -261,6 +264,7 @@ const Table = ({
             sortKey={'COMMENTS'}
             onSort={onSort}
             activeSortKey={sortKey}
+            isSortReverse={isSortReverse}
           >
             Comments
         </Sort>
@@ -270,6 +274,7 @@ const Table = ({
             sortKey={'POINTS'}
             onSort={onSort}
             activeSortKey={sortKey}
+            isSortReverse={isSortReverse}
           >
             Points
         </Sort>
@@ -343,25 +348,20 @@ const Sort = ({
   sortKey,
   activeSortKey,
   onSort,
+  isSortReverse,
   children
 }) => {
   const sortClass = ['button-inline'];
 
-  let arrow;
-
+  let arrow; 
+  
   if (sortKey === activeSortKey) {
-    sortClass.push('button-active');
-    arrow = <FontAwesomeIcon icon="arrow-up" />
-  }
-  /*
-  let arrow;
-
-  if (sortKey !== "NONE") {
+    sortClass.push('button-active');  
     isSortReverse
-      ? arrow = <FontAwesomeIcon icon="arrow-up" />
+      ? arrow = <FontAwesomeIcon icon="arrow-up" />   
       : arrow = <FontAwesomeIcon icon="arrow-down" />
   }
-  */
+  
   return (
     <Button
       onClick={() => onSort(sortKey)}
@@ -369,11 +369,9 @@ const Sort = ({
     >
       {children}
       {arrow}
-    </Button>
-    
+    </Button>    
   );
 }
-
 
 export default App;
 
