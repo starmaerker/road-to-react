@@ -224,7 +224,7 @@ const Table = ({
   const sortedList = SORTS[sortKey](list);
   const reverseSortedList = isSortReverse
     ? sortedList.reverse()
-    : sortedList;
+    : sortedList;  
 
   return (
     <div className="table">
@@ -237,10 +237,6 @@ const Table = ({
           >
             CREATED
         </Sort>
-          {isSortReverse
-            ? <FontAwesomeIcon icon="arrow-up" />
-            : <FontAwesomeIcon icon="arrow-down" />
-          }
         </span>
         <span style={{ width: '40%' }}>
           <Sort
@@ -351,17 +347,30 @@ const Sort = ({
 }) => {
   const sortClass = ['button-inline'];
 
+  let arrow;
+
   if (sortKey === activeSortKey) {
     sortClass.push('button-active');
+    arrow = <FontAwesomeIcon icon="arrow-up" />
   }
+  /*
+  let arrow;
 
+  if (sortKey !== "NONE") {
+    isSortReverse
+      ? arrow = <FontAwesomeIcon icon="arrow-up" />
+      : arrow = <FontAwesomeIcon icon="arrow-down" />
+  }
+  */
   return (
     <Button
       onClick={() => onSort(sortKey)}
       className={sortClass.join(' ')}
     >
       {children}
+      {arrow}
     </Button>
+    
   );
 }
 
