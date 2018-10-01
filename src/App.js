@@ -285,7 +285,7 @@ const Table = ({
       </div>
       {reverseSortedList.map(item => (
         <div key={item.objectID} className="table-row">
-          <span style={{ width: "20%" }}>{item.created_at}</span>
+          <span style={{ width: "20%" }}>{item.created_at.substring(0, 10)}</span>
           <span style={{ width: "40%" }}>
             <a href={item.url}>{item.title}</a>
           </span>
