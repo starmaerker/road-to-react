@@ -234,9 +234,9 @@ const Table = ({
             sortKey={'CREATED'}
             onSort={onSort}
             activeSortKey={sortKey}
-            isSortReverse={isSortReverse}
+            isSortReverse={isSortReverse}            
           >
-            CREATED
+            Created
         </Sort>
         </span>
         <span style={{ width: '40%' }}>
